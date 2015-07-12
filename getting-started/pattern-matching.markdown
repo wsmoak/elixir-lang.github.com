@@ -12,7 +12,7 @@ In this chapter, we will show how the `=` operator in Elixir is actually a match
 
 ## The match operator
 
-We have used the `=` operator a couple times to assign variables in Elixir:
+We have used the `=` operator a couple of times to bind values to variables in Elixir:
 
 ```iex
 iex> x = 1
@@ -30,9 +30,11 @@ iex> 2 = x
 ** (MatchError) no match of right hand side value: 1
 ```
 
-Notice that `1 = x` is a valid expression, and it matched because both the left and right side are equal to 1. When the sides do not match, a `MatchError` is raised.
+Notice that `1 = x` is a valid expression.  It matched because the expression can be made equal by binding the value 1 to the variable x.
 
-A variable can only be assigned on the left side of `=`:
+When the sides cannot be made to match, a `MatchError` is raised.
+
+A variable can only be bound by placing it on the left side of `=`:
 
 ```iex
 iex> 1 = unknown
@@ -151,7 +153,7 @@ iex> {x, x} = {1, 2}
 ** (MatchError) no match of right hand side value: {1, 2}
 ```
 
-In some cases, you don't care about a particular value in a pattern. It is a common practice to bind those values to the underscore, `_`. For example, if only the head of the list matters to us, we can assign the tail to underscore:
+In some cases, you don't care about a particular value in a pattern. It is a common practice to bind those values to the underscore, `_`. For example, if only the head of the list matters to us, we can bind the tail to underscore:
 
 ```iex
 iex> [h | _] = [1, 2, 3]
